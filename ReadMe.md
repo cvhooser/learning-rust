@@ -1,7 +1,6 @@
-#Starting Rust
----
+# Starting Rust
 
-#Resources
+# Resources
 - [Go vs Rust](https://bitfieldconsulting.com/golang/rust-vs-go)
 - [Go vs Rust idioms](https://programming-idioms.org/cheatsheet/Go/Rust)
 - [Rust Pitfalls](https://docs.google.com/presentation/d/1-pvJCzwWKSlkiYkdC8FsFH5IRRX2a5UjT3_WhFB7hxE/edit#slide=id.gcbab3a369_1_258)
@@ -14,7 +13,7 @@
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
 -[Rust Books](https://github.com/sger/RustBooks)
 
-#Learning
+# Learning
 ## Day 1
 - Tools
   - [VSCODE](https://code.visualstudio.com/) with [Rust Extension Pack](https://marketplace.visualstudio.com/items?itemName=swellaby.rust-pack)
@@ -65,3 +64,13 @@
 
   ```
 - `unwap` is an error handler that uses `Result<T, E>` enum to return the value or the `panic!` the error.
+
+## Day 3
+- Certain packages are auto included.Theses are referred to as the [prelude](https://doc.rust-lang.org/std/prelude/index.html).
+- [Guessing Game Tutorial](https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html)
+  - Finished up to: _**"Generating a Random Number"**_
+- Variables are immutable by default, but `mut` will allow a variable to be mutable.
+- `::` calls a function from a namespace.
+- `use` keyword allows us to remove the leading namespace of the imported crate
+- `&` is to get something by reference (or the memory address of where the variable is)
+- I created an offline copy of the [rust book](https://github.com/rust-lang/book).
