@@ -74,3 +74,21 @@
 - `use` keyword allows us to remove the leading namespace of the imported crate
 - `&` is to get something by reference (or the memory address of where the variable is)
 - I created an offline copy of the [rust book](https://github.com/rust-lang/book).
+
+## Day 4
+- Reading
+  - [Raft Consensus Paper](https://raft.github.io/raft.pdf)
+
+## Day 5
+- Reading
+  - [Time, Clocks, and the Ordering of Events in a Distributed System]( https://lamport.azurewebsites.net/pubs/time-clocks.pdf)
+
+## Day 6
+- Reading
+  - [Thoughts on Rust Bloat](https://raphlinus.github.io/rust/2019/08/21/rust-bloat.html)
+
+## Day 7
+
+# Resources
+- [Foundational Distributed Systems Papers](https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?m=1)
+- [99% Fault Tolerence](https://vitalik.ca/general/2018/08/07/99_fault_tolerant.html)
