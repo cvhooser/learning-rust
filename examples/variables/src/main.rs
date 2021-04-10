@@ -6,7 +6,7 @@ fn main() {
   // x = 6;
   // println!("The value of x is: {}", x);
 
-  // Part 2 
+  // Part 2
   // Shadowing
   // let x = 5;
   // let x = x + 1;
@@ -53,8 +53,8 @@ fn main() {
   //Part 8
   // Tuples
   // let tup: (i32, f64, u8) = (500, 6.4, 1);
-  
-  // Omg you can destructure! 
+
+  // Omg you can destructure!
   // let tup = (500, 6.4, 1);
   // let (x, y, z) = tup;
   // println!("The value of y is: {}", y);

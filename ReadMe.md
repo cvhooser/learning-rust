@@ -110,20 +110,21 @@
 - Holy balls variable shadowing is amazing for type conversion!
 - `:` is used for variable type annotation. An example being `let guess: us32 = ...`.
 - The error handling in rust is so beautiful! Just look at this code 
-```
-let guess: u32 = match guess.trim().parse() {
-      Ok(num) => num,
-      Err(_) => continue,
-    };
-```
-- 3.0
+
+  ```
+  let guess: u32 = match guess.trim().parse() {
+        Ok(num) => num,
+        Err(_) => continue,
+      };
+  ```
+- 3.0 Common Programming Concepts
   - [Keywords](https://doc.rust-lang.org/book/appendix-01-keywords.html)
   - [Operators](https://doc.rust-lang.org/book/appendix-02-operators.html)
 
-- 3.1
+- 3.1 Variables and Mutability
   - `const` must always be annotated with its type (use `const <var-name>: <type> = <value>;`) and is always immutable. i.e. cannot use `mut`.
 
-- 3.2
+- 3.2 Data Types
   - Integers (i32 is default)
     - Signed (negative/positive): i8, i16, i32, i64, i128, isize
     - Unsigned (positive): u8, u16, u32, u64, u128, usize
@@ -140,6 +141,7 @@ let guess: u32 = match guess.trim().parse() {
       - Return the value a boolean indicating whether there was overflow with the `overflowing_*` methods
       - Saturate at the values min or max values with `saturating_*` methods
         - Saturation stops values from being *greater than the max* or *less than the min*.
+    - *Note* You can use `_` to separate longer integers for readibility. e.g. `1_000_000` = `1000000`
   - Floating Points (f64 is default)
     - f32 and f64
       - f64 is roughly the same speed as f32 but with more precision
@@ -174,6 +176,53 @@ let guess: u32 = match guess.trim().parse() {
         - The *panic* is due to a check at runtime that you are reading inside the bounds of the array. This means that you can not access invalid memory, unlike other languages.
         - e.g. *thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19 note: run with \`RUST_BACKTRACE=1\` environment variable to display a backtrace*
 
+## Day 8
+- 3.3 Functions
+  - declared with `fn`
+    - `fn <name>() { }`
+  - Rust uses *snake_case* for functions and variable names
+  - order of function declartion does not matter
+  - Function signatures must declare the type of each parameter.
+  - Rust is an expression based language and functions are made up of statements and expressions
+    - *Statements* are instructions that perform some action and do not return a value
+    - *Expressions* evaluate to a resulting value
+      - Calling a function is an expression
+      - Calling a macro is an expression
+      - A block used to create a scope i.e. `{ }`, is an expression
+      - **expressions do not end with a semicolon, *if an expression ends with a semicolon it becomes a statement that will not return a value***
+        - e.g.
+        ```
+        fn main() {
+          let x = 5;
+
+          let y = {
+            let x = 3;
+            x + 1 //Note the missing semicolon here
+          };
+          println!("The value of y is: {}", y);
+        }
+        ```
+    - `let y = 6` does not return a value
+      - *note* other languages like ruby and c return the value of their assignment, which allows `x = y = 6`
+  - Return values in function declarations use `->` e.g. `fn plus_one(x: i32) -> i32 { x + 1 }`
+    - You can use the `return` keyword explicitly and use a `;` with an expression and it will not become a statement.
+      - e.g. `fn plus_one(x: i32) -> i32 { return x + 1; }`
+- 3.4 Comments
+  - `//` thats it for now
+- 3.5 Control Flow
+  - Conditionals
+    - `if` conditions do not need surrounding `()`
+      - Blocks of code inside a condition `{}` is sometimes called *arms*, like in pattern matching.
+    - Implicit conversions do not happen for conditionals
+      - e.g. `let number = 3; if number { }` will throw an error because it got an integer instead of a boolean. We instead need to use `let number = 3; if number != 0 { }`
+    - You can use multiple conditions with `else if`
+    - You can use conditionals in let statements
+      - `let number = if <condition> { 5 } else { 6 };` *note: all expression results must be the same type*
+  - Loops
+    - three kinds of loops: `loop`, `while`, and `for`
+    - for uses iteraters `for <value> in <collection>.iter`
+      - e.g. `let a = [1,2,3]; for element in a.iter() { }` 
+    
 
 # Resources
 - [Foundational Distributed Systems Papers](https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?m=1)
