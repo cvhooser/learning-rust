@@ -16,7 +16,8 @@ fn main() {
       .read_line(&mut guess)
       .expect("Failed to read line");
 
-    let guess: u32 = match guess.trim().parse() {
+    // The type of syntax I added ::<u32> is known as turbofish
+    let guess: u32 = match guess.trim().parse::<u32>() {
       Ok(num) => num,
       Err(_) => continue,
     };
