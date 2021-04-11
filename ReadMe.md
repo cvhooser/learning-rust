@@ -221,9 +221,37 @@
   - Loops
     - three kinds of loops: `loop`, `while`, and `for`
     - for uses iteraters `for <value> in <collection>.iter`
-      - e.g. `let a = [1,2,3]; for element in a.iter() { }` 
-    
+      - e.g. `let a = [1,2,3]; for element in a.iter() { }`
 
+  - 4.0 Understanding Ownership
+    - allows Rust to make memory safety guarantees without needing a garbage collector. Features include borrowing and splices. 
+  - 4.1 What is Ownership?
+    - Memory is managed by a system of ownership that the compiler checks at compile time (does not effect runtime)
+    - Data on the stack must have a known, fixed size. Dyanmically sized data sits on the heap.
+    - Ownership exists as a way to manage heap data.
+    - Rules
+      - Each value in Rust has a variable that's called its owner.
+      - There can only be one owner at a time
+      - When the owner goes out of scope, the value will be dropped.
+    - Variable Scope
+      - Basically after it is declared, inside of `{}`
+    - Memory and Allocation
+      - Memory is allocated when initializing a variable (allocates memory on the heap), it is freed when the variable goes out of scope (rust automatically calls a `drop` function).
+        - This is similar to a C++ pattern called *Resource Acquisition Is Initalization (RAII)*
+    - Ways Variables and Data Interact:Move
+      - Reassignment copies over stack values to the new variable, NOT heap values.
+        - e.g. `let s1 = String::from("hello"); let s2 = s1;`
+        - When `s2` and `s1` go out of scope a *double free* will occur. Where drop tries to free both `s1` and `s2` above.
+        - To avoid this rust considers `s1` to no longer be valid and does not need to free anything when it goes out of scope.
+        - This also means that s1 cannot be used after s2 is declared either.
+        - Easier put: "Reallocation creates a dead variable."
+        - Instead of being called a *shallow copy* this is called a *move* (due to the invalidation of the previous variable)
+        - Rust will NEVER automatically create "deep" copies of your data. Thus all *automatic* copying is inexpensive at runtime. Deep copying can be done with `.clone()`
+    - Ownership and Functions
+      - Variables go out of scope if they are on the heap, and passed into a funtion (see ownership example code). They are *moved* into the function.
+      - The same applies for variables that are returned from a function. They are *moved* to the location the function is returning to.
+  - 4.2 References and Borrowing
+    - 
 # Resources
 - [Foundational Distributed Systems Papers](https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?m=1)
 - [99% Fault Tolerence](https://vitalik.ca/general/2018/08/07/99_fault_tolerant.html)
