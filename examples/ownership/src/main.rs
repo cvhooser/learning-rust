@@ -40,12 +40,12 @@
 //   // it refers to, nothing happens.
 
 // Mutable References
-// fn main() {
-//   let mut s = String:: from("hello");
+fn main() {
+  let mut s = String:: from("hello");
 
-//   change(&mut s);
-// }
-// // This works because s is mut and some_string is &mut
-// fn change(some_string: &mut String) {
-//   some_string.push_str(", world");
-// }
+  change(&mut s);
+}
+// This works because s is mut and some_string is &mut
+fn change(some_string: &mut String) {
+  some_string.push_str(", world");
+}
