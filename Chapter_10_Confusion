@@ -1,0 +1,11 @@
+In the beginning of chapter 10, it starts building an example beginning with *10-1* for Traits. After it has restructured redundant code, you end up with the example *10-5* that does not compile, that you are later going to come back and fix.
+
+Near the end of Chapter 10.2 it again references the function as working in example *10-15* after a slight alteration to only the function signature. That is `fn largest<T>(list: &[T]) -> &T` to `fn largest<T: PartialOrd>(list: &[T]) -> T`. Here in lies the confusion for two reasons.
+
+1. The language suggests only changing the signature is necessary "Change the signature of `largest` to look like this: `fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {`", but there are two subtle changes to the body, a body that is hidden by default. Those being: `let mut largest = &list[0]` to `let mut largest = list[0]`, and `for item in list` to `for &item in list`. 
+
+2. A quick glance at the function signature, after reading about traits, and it is obvious. You just need to add the `PartialOrd` Trait as a parameter and it will work; and it does! However in following except it says you should receive an error that you did not.
+
+After going back through and spotting the change in the return signature `-> T {`, I figured it out. However I then had new errors that were different from the expected one, until I realize the subtle changes mentioned in the body as well.
+
+While it is fine for learning the language and is intuitive to figure out, it is a digression from the step-by-step examples that the rest of the books contains.
