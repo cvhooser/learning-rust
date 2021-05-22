@@ -1059,7 +1059,44 @@ fn main() {
 -  `if let` if we only have an error case
 -  `unwrap` if we want to `panic!`
 -  `unwrap_or_else` if we want to handle an error case and have `Ok(v)` that we need to unwrap
-  
+
+## Day 19
+
+### 13.0 Functional Language Features: Iterators and Closures
+- *closures*, a function-like construct you can store in a variables
+- *iterators*, a way of processing a series of elements
+- Both of these are faster than you would think and required for writing idiomatic Rust
+
+#### 13.1 Closures: Anonymous Functions that Can Capture Their Environment
+- closure definition is `|<var>| { }` 
+- Does not require type declarations, because of type inference, but it can.
+- You cannot call a closure with different types of variables
+- encapsulated caching is also called *memorization* or *lazy evaluation*
+- `Fn` is a trait
+	- All closures implement `Fn`, `FnMut`, `FnOnce`
+	- Functions can implement all three of the `Fn` traits too. If what we want to do doesn’t require capturing a value from the environment, we can use a function rather than a closure where we need something that implements an `Fn` trait.
+- Closures capture their environment and access variables from the scope in which they were defined.
+- When closures capture a value from the environment it uses memory to store the values for use in the body; which incurs overhead and is done in three different ways.
+	- `FnOnce` consumes the variables from ithe enclosing scope (i.e. environment). Since the closure needs to take ownership from the enclosing scope, it can only be called once.
+	- `FnMut` can change the environment because it mutably borrows values
+	- `Fn` borrows values from the environment immutably
+	- **Rust infers the trait  based on how the closure uses the values from the environment**
+		- All closures implmement `FnOnce`
+		- Closures that don't move the captured variables also implement `FnMut`
+		- Closures that don't need mutable access also implement `Fn`
+- The `move` keyword can force the closure to take ownership of the values it uses in the environment.
+	-  e.g. 
+	```
+		let x = vec![1, 2, 3];
+		let equal_to_x = move |z| z == x;
+		println!("can't use x here: {:?}", x);
+	```
+	- Note: `move` closures may still implement `Fn` or `FnMut`, even though they capture variables by move. This is because the traits implemented by a closure type are determined by what the closure does with captured values, not how it captures them. The `move` keyword only specifies the latter.
+	- Most of the time when specifying one of the `Fn` trait bounds, you can start with the `Fn` and the compiler will tell you if you need `FnMut` or `FnOnce` based on what happens in the closure body.
+
+
+
+ 
 # Things I am struggling with and need to review
 - Chapter 4 [String Slices as Parameters](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices-as-parameters)
 - Chapter 10 [Using Trait Bounds to Conditionally Implement Methods](https://doc.rust-lang.org/book/ch10-02-traits.html#using-trait-bounds-to-conditionally-implement-methods)
