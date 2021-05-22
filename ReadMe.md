@@ -264,7 +264,7 @@
   - You can change it if you make it a mutable reference
   - You can only have ONE mutable reference to a particular piece of data in a particular scope.
     - This prevents a data race from occuring
-      * Two or more pointes access The same data at the same time.
+      * Two or more pointes access the same data at the same time.
       * At least one of the pointers is being used to write to the data.
       * There's no mechanism being used to synchronize access to the data.
     - You cannot mix mutable and immutable references
@@ -332,7 +332,7 @@
   let sign_in_count = 1;
   let user1 = new User {email, name, active, sign_in_count}
   ```
-- *struct update syntax* is the similar to  javascript.
+- *struct update syntax* is the similar to  javascript expansion
   - e.g.
   ```
   let user2 = User {
@@ -452,7 +452,7 @@
 - `if let` is a way to match one pattern while ignoring the rest.
   e.g.
   ```
-  let some_u8_value = Some(8);
+  let some_u8_value = Some(0u8);
   if let Some(3) = some_u8_value {
     println!("three");
   }
@@ -646,7 +646,7 @@
 - Values can be retrieved with the `get` method. `get` returns an `Option<&V>`
 - You can iterate with them over `for (key, value) in &myMap{}`
 - *Overwrite*: By default `insert` will overwrite the previous key.
-- *Insert if key has no value*: `entry` takes a key you want to insert and gives you an `Entry` enum that represents a value that may or may not exist. `or_insert` on `Entry` is defined to return a mutable reference to the value for the `Entry` key if it exists. Otherwise it enters the new value provided.
+- *Insert if key has no value*: `.entry` takes a key you want to insert and gives you an `Entry` enum that represents a value that may or may not exist. `.or_insert` on `Entry` is defined to return a mutable reference to the value for the `.entry` key if it exists. Otherwise it enters the new value provided.
 - *Update on*: Same as previous see, below example
 ```
 fn main() {
@@ -671,17 +671,17 @@ fn main() {
 
 ## Day 15
 
-### 8.0
+### 9.0
 - There are two types of errors in Rust, *recoverable* and *unrecoverable*. 
 - Rust doesn't have exceptions, it has `Result<T,E>` for recoverable errors and the `panic!` macro that stops execution when the program encounters and unrecoverable error.
 
-#### 8.1 Unrecoverable Errors with `panic!`
+#### 9.1 Unrecoverable Errors with `panic!`
 - When the `panic!` macro executes, your program prints afailure message, unwinds and cleans the stack, and then quits.
   - *unwinding* means Rust walks back up the stack and cleans up the data from each function it encounters.
   - *unwinding* is expensive and you can have your program not clean up memory (let the OS do it) by using `panic = 'abort'` to the appropriate  `[profile]` sections in your `Cargo.toml` file.
 - We can get more detailed information (backtrace) about inner `panic!`s by setting the `RUST_BACKTRACE=1` environment variable. Detailed backtraces need to have debug symbols enabled (which is default with `cargo build` or `cargo run` without the `--release` flag)
 
-#### 8.2 Recoverable Errors with Result
+#### 9.2 Recoverable Errors with Result
 - The `Result` enum has two variants `Ok` and `Err`
 ```
 enum Result<T, E> {
@@ -887,7 +887,7 @@ fn main() {
   - We can call any method on the trait. If we try to pass in other variables, it will not compile.
 - `impl Trait` syntax works for straightforward cases, but is syntax sugar for *trait bound* syntax. The below is the same as: `pub fn notify(item: &impl Summary) { }`
   - e.g. `pub fn notify<T: Summary>(item: &T){ }`
-- If we wanted to have any type that implements a trait we could use ` ub fn notify(item: &impl Summary) { }`
+- If we wanted to have any type that implements a trait we could use `pub fn notify(item: &impl Summary) { }`
 - If we wanted to ensure they were the same type we would use *trait bound* syntax: `pub fn notify<T: Summary>(item1: &T, item2: &T) { }`
 - We can specify multiple *trait bound* parameters with `+`
   - e.g. `pub fn notify(item: &(impl Summary + Display)) { }`
@@ -962,7 +962,7 @@ fn main() {
 ```
 &i32        // a reference
 &'a i32     // a reference with an explicit lifetime
-&a' mut i32 // a mutable reference with an explicit lifetime
+&'a mut i32 // a mutable reference with an explicit lifetime
 ```
 - **Lifetime annotations only have meaning when they have a relation to another lifetime.**
 - Declared in `<>` in between the function name and parameter list.
@@ -994,11 +994,11 @@ fn main() {
   - You can do these with the `test` attribute, a few macros, and the `should_panic` attribute.
 - test functions are marked with the `[#test]` attribute
 - `cargo test` runs all tests in our project
-- tests ran fall into: *passed*, *failed*, *ignored*, *measured*, or *filtered*.
+- tests run fall into: *passed*, *failed*, *ignored*, *measured*, or *filtered*.
   - *Measured* tests are for benchmarks that measure performance
-- `Doc-tests` ouput is for the result of documentation tests. Rust can compile code examples that appear in out API documentation.
+- `Doc-tests` ouput is for the result of documentation tests. Rust can compile code examples that appear in API documentation.
 - Each test is run in a new thread and when the main thread sees that a test thread has died, the test is marked as failed.
-- The `assert` marco esnures that some condition evaluates to `true`.
+- The `assert` marco ensures that some condition evaluates to `true`.
 - You can compare to a value with `assert_eq!(v1, v2)` and `assert_ne!(v1, v2)`
 - Instead of *expected* and *actual*, it is *left* and *right* where order doesn't matter.
   - Arguments must implement the `PartialEq` and `Debug` traits. This is usually as simple as adding `#[derive(PartialEq, Debug)]` since they are derivable traits.
@@ -1025,7 +1025,7 @@ fn main() {
 - `#[ignore]` allows you to ignore tests
   - We can run only these tests with `cargo test -- --ignored`
 
-#### 10.3 Test Organization
+#### 11.3 Test Organization
 - Two main types: *unit tests* and *integration tests*
 - Unit tests 
   - Go in the *src* directory. They go in the file with the code they are testing. The convention is to have a module named `tests` in each file to contain the test functions and to annotate the module with `#[cfg(test)]`
@@ -1045,7 +1045,20 @@ fn main() {
 - If we only have a binary crate that contains a *src/main.rs* and doesn't have a *src/lib.rs* we can't create integration tests. **Only library crates can expose functions for other crates to use; binary crates are mean't to be run on their own.**
 - This is one of the reasons Rust projects with a binary have a straightforward *src/main.rs* that calls logic that lives in *src/lib.rs* Integration tests can test the library crate and assume the small amount of code in *src/main.rs* will be fine.
 
+## Day 18
 
+### 12.0 An I/O Project: Building a Command Line Program
+- So we took a bit of time off. So far the important bits of this project are about binary project separation.
+	- Split your program into a _main.rs_ and a _lib.rs_ and move your program’s logic to _lib.rs_.
+	- As long as your command line parsing logic is small, it can remain in _main.rs_.
+	- When the command line parsing logic starts getting complicated, extract it from _main.rs_ and move it to _lib.rs_.
+- There’s a tendency among many Rustaceans to avoid using `clone` to fix ownership problems because of its runtime cost
+- `dyn` is short for *dynamic*
+-  It was discussed earlier, but `?` returns error (i.e. error propogation)
+-  Returning `Ok(())` is the idiomatic way to know you are calling a function for its side effects only.
+-  `if let` if we only have an error case
+-  `unwrap` if we want to `panic!`
+-  `unwrap_or_else` if we want to handle an error case and have `Ok(v)` that we need to unwrap
   
 # Things I am struggling with and need to review
 - Chapter 4 [String Slices as Parameters](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices-as-parameters)
