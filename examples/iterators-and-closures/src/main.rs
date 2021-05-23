@@ -1,10 +1,10 @@
-use std::{thread, time::Duration, collections::HashMap, hash::Hash};
+use std::{collections::HashMap, hash::Hash, thread, time::Duration};
 
 struct Cacher<T, K, V>
 where
   T: Fn(K) -> V,
   K: Hash + Eq + Copy,
-  V: Copy
+  V: Copy,
 {
   calculation: T,
   values: HashMap<K, V>,
@@ -14,7 +14,7 @@ impl<T, K, V> Cacher<T, K, V>
 where
   T: Fn(K) -> V,
   K: Hash + Eq + Copy,
-  V: Copy
+  V: Copy,
 {
   fn new(calculation: T) -> Cacher<T, K, V> {
     Cacher {
@@ -24,7 +24,10 @@ where
   }
 
   fn value(&mut self, intensity: K) -> V {
-    self.values.entry(intensity).or_insert((self.calculation)(intensity)).clone()
+    *self
+      .values
+      .entry(intensity)
+      .or_insert((self.calculation)(intensity))
   }
 }
 
@@ -49,7 +52,10 @@ fn generate_workout(intensity: u32, random_number: u32) {
     if random_number == 3 {
       println!("Take a break today! Remember to stay hydrated!");
     } else {
-      println!("Today, run for {} minutes!", expensive_result.value(intensity));
+      println!(
+        "Today, run for {} minutes!",
+        expensive_result.value(intensity)
+      );
     }
   }
 }
