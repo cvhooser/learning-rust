@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "456be16696f25870",
+        "id": "1e854f4285eaf130",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "ReadMe.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ReadMe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +82,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "456be16696f25870",
+  "active": "1e854f4285eaf130",
   "lastOpenFiles": [
+    "Days/Day 23.md",
     "ReadMe.md",
+    "Days/Untitled.md",
     "Days/Day 22.md",
     "Days/Day 21.md",
     "Days/Day 20.md",
     "Days/Day 19.md",
     "Days/Day 17.md",
     "Days/Day 18.md",
-    "Days/Day 16.md",
-    "Days/Day 15.md",
-    "Days/Day 14.md"
+    "Days/Day 16.md"
   ]
 }

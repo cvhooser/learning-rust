@@ -21,25 +21,28 @@
 [[Day 20]] **ch 14** - Cargo and Crate
 [[Day 21]] **ch 15** - Smart Pointers: `Box<T>` and `Rc<T>`
 [[Day 22]] **ch 15 | ch 16** - Smart Pointers: `RefCell<T>` Concurrency: Threads, and Message Passing
+[[Day 23]] **ch16 | ch 17** - Shared State, Sync / Send Traits, and Object Oriented Features (Trait Objects)
 
 ## Strategy to breakthrough
 - RUST
-  - [ ] I'm going to go through [The Rust Book](https://doc.rust-lang.org/book) in its entirety.
-  - [ ] Then I plan to move on to [rustlings](https://github.com/rust-lang/rustlings) and see how challenging they are. 
-  - [ ] There is also [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/) that is probably worth running through.
-  - [ ] After that I should have enough of an understanding to be able to start combing through open source projects code bases (polkadot) and make some bug fixes.
-  - [ ] Then I want to attempt to write an implementation of the [RAFT](https://raft.github.io).
-  - [ ] At this point I should have enough of an understanding to start applying for jobs.
+	- [ ] I'm going to go through [The Rust Book](https://doc.rust-lang.org/book) in its entirety.
+	- [ ] Then I plan to move on to [rustlings](https://github.com/rust-lang/rustlings) and see how challenging they are. 
+	- [ ] There is also [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/) that is probably worth running through.
+	- [ ] After that I should have enough of an understanding to be able to start combing through open source projects code bases (polkadot) and make some bug fixes.
+	- [ ] Then I want to attempt to write an implementation of the [RAFT](https://raft.github.io).
+	- [ ] At this point I should have enough of an understanding to start applying for jobs.
 - Distributed Systems
-  - [ ] Starting from the beginning, read and note my way through these [Foundational Distributed Systems Papers](https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?m=1).
-  - [ ] Research and take notes on other consensus algorithms
+	- [ ] Starting from the beginning, read and note my way through these [Foundational Distributed Systems Papers](https://muratbuffalo.blogspot.com/2021/02/foundational-distributed-systems-papers.html?m=1).
+	- [ ] Research and take notes on other consensus algorithms
 - Blockchain
-  - [ ] Research and understand the technicals of Polkadot.
-  - [ ] Become an active member and contributor on the polkadot discord server.
+	- [ ] Research and understand the technicals of Polkadot.
+	- [ ] Become an active member and contributor on the polkadot discord server
+	- [ ] Write a stellar sdk in Rust
 
 # Things I am struggling with and need to review
 - Chapter 4 [String Slices as Parameters](https://doc.rust-lang.org/book/ch04-03-slices.html#string-slices-as-parameters)
 - Chapter 10 [Using Trait Bounds to Conditionally Implement Methods](https://doc.rust-lang.org/book/ch10-02-traits.html#using-trait-bounds-to-conditionally-implement-methods)
+- Chapter 17 [Generics vs. Trait Objects and when to use them](https://doc.rust-lang.org/book/ch17-02-trait-objects.html)
 
 
 # Resources
