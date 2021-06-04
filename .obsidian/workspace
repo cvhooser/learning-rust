@@ -7,8 +7,11 @@
         "id": "1e854f4285eaf130",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "ReadMe.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ReadMe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,15 +88,15 @@
   },
   "active": "1e854f4285eaf130",
   "lastOpenFiles": [
-    "Days/Day 23.md",
     "ReadMe.md",
     "Days/Untitled.md",
+    "Days/Day 24.md",
+    "Days/Day 23.md",
     "Days/Day 22.md",
     "Days/Day 21.md",
     "Days/Day 20.md",
     "Days/Day 19.md",
     "Days/Day 17.md",
-    "Days/Day 18.md",
-    "Days/Day 16.md"
+    "Days/Day 18.md"
   ]
 }
