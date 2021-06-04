@@ -23,6 +23,7 @@
 [[Day 22]] **ch 15 | ch 16** - Smart Pointers: `RefCell<T>` Concurrency: Threads, and Message Passing
 [[Day 23]] **ch16 | ch 17** - Shared State, Sync / Send Traits, and Object Oriented Features (Trait Objects)
 [[Day 24]] **ch 17** - Blog example
+[[Day 25]] **ch 18** - Pattern Matching
 
 ## Strategy to breakthrough
 - RUST
