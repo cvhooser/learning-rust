@@ -1,3 +1,5 @@
+## Day 24
+
 #### 17.3 Implementing an Object-Oriented Design Pattern
 - _/examples/blog_ implements a state pattern
 - `take()` method calls on the option gives ownership to the caller and replaces the values with `None`

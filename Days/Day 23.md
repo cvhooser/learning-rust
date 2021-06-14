@@ -1,3 +1,5 @@
+## Day 23
+
 #### 16.3 Shared-State Concurrency
 - *mutex* is short for _mutal exclusion_. It only allows a single thread to access data at a time.
 - Mutexes are notorious for being hard to use because:
