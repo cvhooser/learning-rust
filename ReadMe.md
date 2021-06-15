@@ -25,6 +25,8 @@
 [[Day 24]] **ch 17** - Blog example
 [[Day 25]] **ch 18** - Pattern Matching
 [[Day 26]] **ch 19** - Unsafe Rust
+[[Day 27]] **ch 19** - Advanced: Traits, Types, Functions and Closures. Also Macros
+[[Day 28]]
 
 ## Strategy to breakthrough
 - RUST
