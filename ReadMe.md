@@ -26,11 +26,16 @@
 [[Day 25]] **ch 18** - Pattern Matching
 [[Day 26]] **ch 19** - Unsafe Rust
 [[Day 27]] **ch 19** - Advanced: Traits, Types, Functions and Closures. Also Macros
-[[Day 28]]
+[[Day 28]] **ch20**
+[[Day 29]] **Appendix Notes**
+- [Keywords](https://doc.rust-lang.org/book/appendix-01-keywords.html)
+- [Operators and Symbols](https://doc.rust-lang.org/book/appendix-02-operators.html)
+- [Derivable Traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html)
+- [Useful Development Tools](https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html)
 
 ## Strategy to breakthrough
 - RUST
-	- [ ] I'm going to go through [The Rust Book](https://doc.rust-lang.org/book) in its entirety.
+	- [x] I'm going to go through [The Rust Book](https://doc.rust-lang.org/book) in its entirety.
 	- [ ] Then I plan to move on to [rustlings](https://github.com/rust-lang/rustlings) and see how challenging they are. 
 	- [ ] There is also [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/) that is probably worth running through.
 	- [ ] After that I should have enough of an understanding to be able to start combing through open source projects code bases (polkadot) and make some bug fixes.
