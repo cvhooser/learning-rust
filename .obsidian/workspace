@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Days/Day 29.md",
+            "file": "RustByExample.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Days/Day 29.md",
+                "file": "RustByExample.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "0e422e992a2ced3b",
   "lastOpenFiles": [
-    "Days/Untitled.md",
+    "RustByExample.md",
+    "Days/Day 19.md",
     "ReadMe.md",
+    "Days/Untitled.md",
     "Untitled.md",
     "Days/Day 28.md",
     "Days/Day 27.md",
     "Days/Day 23.md",
     "Days/Day 1.md",
-    "Days/Day 7.md",
-    "Days/Day 26.md",
-    "Days/Day 25.md"
+    "Days/Day 7.md"
   ]
 }
